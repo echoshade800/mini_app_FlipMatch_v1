@@ -68,6 +68,13 @@ export default function GameScreen() {
 
   // Initialize game
   useEffect(() => {
+    // 检查是否是新用户首次进入level 1
+    if (parseInt(levelId, 10) === 1 && !gameData.seenTutorial) {
+      // 新用户首次进入level 1，显示教程
+      router.replace('/onboarding?firstTime=true');
+      return;
+    }
+    
     // Initialize sound system for this level
     soundManager.initializeLevel(levelId);
     initializeGame();

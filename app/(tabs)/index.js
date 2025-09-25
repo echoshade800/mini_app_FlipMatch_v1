@@ -49,23 +49,19 @@ export default function HomeScreen() {
   useEffect(() => {
     // Show onboarding if first time user
     // Only show onboarding when user is on the home tab, not when navigating to other tabs
-    console.log('Home: Tutorial check - isRouterReady:', isRouterReady, 'isLoading:', isLoading, 'seenTutorial:', gameData.seenTutorial, 'hasShownOnboarding:', hasShownOnboarding);
-    
-    if (isRouterReady && !isLoading && !gameData.seenTutorial) {
-      console.log('Home: Conditions met, showing tutorial in 300ms');
+    if (isRouterReady && !isLoading && !gameData.seenTutorial && !hasShownOnboarding) {
       // Add a small delay to ensure the user is actually on the home screen
       // and prevent interference with tab navigation
       const timer = setTimeout(() => {
         // Double check that we're still in the right state before navigating
-        if (!gameData.seenTutorial) {
-          console.log('Home: Showing tutorial now');
+        if (!gameData.seenTutorial && !hasShownOnboarding) {
           setHasShownOnboarding(true);
           router.push('/onboarding?firstTime=true');
         }
       }, 300);
       return () => clearTimeout(timer);
     }
-  }, [gameData.seenTutorial, isRouterReady, isLoading, router]);
+  }, [gameData.seenTutorial, isRouterReady, isLoading, hasShownOnboarding, router]);
 
   if (isLoading) {
     return (
@@ -91,7 +87,14 @@ export default function HomeScreen() {
 
   const handlePlayNext = () => {
     if (nextLevelConfig) {
-      router.push(`/game/${nextLevel}`);
+      // 检查是否是新用户首次点击play level 1
+      if (nextLevel === 1 && !gameData.seenTutorial) {
+        // 新用户首次点击play level 1，显示教程
+        router.push('/onboarding?firstTime=true');
+      } else {
+        // 正常进入游戏
+        router.push(`/game/${nextLevel}`);
+      }
     }
   };
 

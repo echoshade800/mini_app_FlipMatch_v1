@@ -28,9 +28,7 @@ export default function LevelsScreen() {
 
   // Check if user needs to complete onboarding first
   useEffect(() => {
-    console.log('Levels: Tutorial check - seenTutorial:', gameData.seenTutorial);
     if (!gameData.seenTutorial) {
-      console.log('Levels: Redirecting to tutorial');
       // Redirect to onboarding if user hasn't completed it yet
       router.replace('/onboarding?firstTime=true');
     }
