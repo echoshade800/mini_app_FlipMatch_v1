@@ -49,12 +49,16 @@ export default function HomeScreen() {
   useEffect(() => {
     // Show onboarding if first time user
     // Only show onboarding when user is on the home tab, not when navigating to other tabs
+    console.log('Home: Tutorial check - isRouterReady:', isRouterReady, 'isLoading:', isLoading, 'seenTutorial:', gameData.seenTutorial, 'hasShownOnboarding:', hasShownOnboarding);
+    
     if (isRouterReady && !isLoading && !gameData.seenTutorial) {
+      console.log('Home: Conditions met, showing tutorial in 300ms');
       // Add a small delay to ensure the user is actually on the home screen
       // and prevent interference with tab navigation
       const timer = setTimeout(() => {
         // Double check that we're still in the right state before navigating
         if (!gameData.seenTutorial) {
+          console.log('Home: Showing tutorial now');
           setHasShownOnboarding(true);
           router.push('/onboarding?firstTime=true');
         }
