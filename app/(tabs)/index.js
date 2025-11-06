@@ -1,6 +1,6 @@
 /**
  * Home Screen (Dashboard)
- * Purpose: Overview and quick actions for the Flip & Match game
+ * Purpose: Overview and quick actions for the FlipMatch game
  * Extension: Add stats widgets, achievements, daily challenges
  */
 
@@ -107,7 +107,7 @@ export default function HomeScreen() {
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerTop}>
-          <Text style={styles.title}>Flip & Match</Text>
+          <Text style={styles.title}>FlipMatch</Text>
           <View style={styles.headerRight}>
             <TouchableOpacity style={styles.settingsButton} onPress={handleShowOnboarding}>
               <Ionicons name="help-circle-outline" size={24} color="#6B7280" />

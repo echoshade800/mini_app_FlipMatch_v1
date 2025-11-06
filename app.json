@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Flip & Match",
-    "slug": "flip-and-match",
+    "name": "FlipMatch",
+    "slug": "flipmatch",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "flipandmatch",
+    "scheme": "flipmatch",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

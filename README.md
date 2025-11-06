@@ -1,4 +1,4 @@
-# Flip & Match
+# FlipMatch
 
 A React Native Expo card matching game with 25 challenging levels, advanced scoring system, and power-up mechanics.
 
@@ -192,4 +192,4 @@ previewTime = max(3, min(12, 2 + 0.35 × (cards/2)))
 
 ## 📄 License
 
-© 2025 Flip & Match. All rights reserved.
+© 2025 FlipMatch. All rights reserved.

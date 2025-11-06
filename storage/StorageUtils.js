@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
- * Storage utility class for Flip & Match app
+ * Storage utility class for FlipMatch app
  * Provides AsyncStorage operations for user data and game progress
  */
 class StorageUtils {

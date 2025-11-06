@@ -12,7 +12,7 @@ import useGameStore from '../store/useGameStore';
 
 const ONBOARDING_SLIDES = [
   {
-    title: 'Welcome to Flip & Match!',
+    title: 'Welcome to FlipMatch!',
     subtitle: 'Test your skills with emoji cards',
     icon: '🧠',
     content: 'Challenge yourself with our card matching game. Find matching emoji pairs across 25 levels of increasing difficulty!'
