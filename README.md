@@ -1,6 +1,6 @@
-# Memory Card Game
+# Flip & Match
 
-A React Native Expo memory card matching game with 25 challenging levels, advanced scoring system, and power-up mechanics.
+A React Native Expo card matching game with 25 challenging levels, advanced scoring system, and power-up mechanics.
 
 ## 🎮 Game Features
 
@@ -79,7 +79,7 @@ app/
 └── +not-found.tsx        # 404 error page
 
 components/
-├── GameCard.js            # Individual memory card with flip animations
+├── GameCard.js            # Individual card with flip animations
 ├── GameGrid.js            # Responsive grid layout for cards
 ├── GameHeader.js          # Game UI header with coins display
 ├── PowerupBar.js          # Power-up selection and purchase
@@ -192,4 +192,4 @@ previewTime = max(3, min(12, 2 + 0.35 × (cards/2)))
 
 ## 📄 License
 
-© 2025 Memory Game. All rights reserved.
+© 2025 Flip & Match. All rights reserved.

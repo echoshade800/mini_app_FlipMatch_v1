@@ -1,6 +1,6 @@
 /**
  * GameGrid Component
- * Renders the grid layout for memory game cards
+ * Renders the grid layout for card matching game cards
  */
 
 import { View, StyleSheet, Dimensions, Platform } from 'react-native';

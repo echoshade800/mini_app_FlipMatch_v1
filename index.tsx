@@ -7,4 +7,4 @@ function Root() {
   return <ExpoRoot context={ctx} />;
 }
 
-AppRegistry.registerComponent('MemoryMiniApp', () => Root);
+AppRegistry.registerComponent('FlipAndMatchMiniApp', () => Root);

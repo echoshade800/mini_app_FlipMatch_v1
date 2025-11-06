@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Memory",
-    "slug": "memory-card-game",
+    "name": "Flip & Match",
+    "slug": "flip-and-match",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "memory",
+    "scheme": "flipandmatch",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {

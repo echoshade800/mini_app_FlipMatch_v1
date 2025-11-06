@@ -1,12 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
- * Storage utility class for Memory app
+ * Storage utility class for Flip & Match app
  * Provides AsyncStorage operations for user data and game progress
  */
 class StorageUtils {
   // miniApp name variable
-  static miniAppName = 'MemoryMiniApp';
+  static miniAppName = 'FlipAndMatchMiniApp';
 
   /**
    * Get user data

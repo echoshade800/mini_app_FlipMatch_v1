@@ -1,6 +1,6 @@
 /**
  * GameCard Component
- * Renders individual memory cards with flip animations and emoji faces
+ * Renders individual cards with flip animations and emoji faces
  */
 
 import { View, TouchableOpacity, Text, StyleSheet, Animated, Image } from 'react-native';

@@ -95,35 +95,44 @@ export default function PowerupBar({
     
     let buttonStyle = styles.powerupButton;
     let emojiStyle = styles.powerupEmoji;
-    let countStyle = styles.powerupCount;
+    let priceContainerStyle = styles.priceContainer;
+    let coinIconStyle = styles.coinIcon;
+    let priceTextStyle = styles.priceText;
     
     if (!canUse) {
       buttonStyle = [styles.powerupButton, styles.powerupButtonDisabled];
+      priceContainerStyle = [styles.priceContainer, styles.priceContainerDisabled];
     } else if (canAfford) {
       buttonStyle = [styles.powerupButton, styles.powerupButtonCanBuy];
+      priceContainerStyle = [styles.priceContainer, styles.priceContainerCanBuy];
     } else {
       buttonStyle = [styles.powerupButton, styles.powerupButtonEmpty];
       emojiStyle = [styles.powerupEmoji, styles.powerupEmojiEmpty];
-      countStyle = [styles.powerupCount, styles.powerupCountEmpty];
+      priceContainerStyle = [styles.priceContainer, styles.priceContainerEmpty];
+      coinIconStyle = [styles.coinIcon, styles.coinIconEmpty];
+      priceTextStyle = [styles.priceText, styles.priceTextEmpty];
     }
     
     return (
-      <TouchableOpacity
-        key={powerupType}
-        style={buttonStyle}
-        onPress={() => handlePowerupAction(powerupType)}
-        disabled={!canUse}
-      >
-        <Text style={emojiStyle}>
-          {config.emoji}
-        </Text>
-        <Text style={countStyle}>
-          💰
-        </Text>
-        <Text style={styles.priceText}>
-          {config.price}
-        </Text>
-      </TouchableOpacity>
+      <View key={powerupType} style={styles.powerupWrapper}>
+        <TouchableOpacity
+          style={buttonStyle}
+          onPress={() => handlePowerupAction(powerupType)}
+          disabled={!canUse}
+        >
+          <Text style={emojiStyle}>
+            {config.emoji}
+          </Text>
+        </TouchableOpacity>
+        <View style={priceContainerStyle}>
+          <Text style={coinIconStyle}>
+            💰
+          </Text>
+          <Text style={priceTextStyle}>
+            {config.price}
+          </Text>
+        </View>
+      </View>
     );
   };
 
@@ -142,7 +151,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    paddingVertical: 16,
+    paddingVertical: 0,
     paddingHorizontal: 20,
     backgroundColor: 'transparent',
   },
@@ -150,6 +159,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+  },
+  powerupWrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
   },
   powerupButton: {
     alignItems: 'center',
@@ -183,22 +197,54 @@ const styles = StyleSheet.create({
   },
   powerupEmoji: {
     fontSize: 18,
-    marginBottom: 2,
   },
   powerupEmojiEmpty: {
     opacity: 0.3,
   },
-  powerupCount: {
-    fontSize: 9,
-    fontWeight: 'bold',
-    color: '#374151',
+  priceContainer: {
+    position: 'absolute',
+    bottom: -8,
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    minWidth: 40,
+    borderWidth: 1,
+    borderColor: '#D1D5DB',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
   },
-  powerupCountEmpty: {
-    color: '#9CA3AF',
+  priceContainerCanBuy: {
+    backgroundColor: 'rgba(254, 243, 199, 0.95)',
+    borderColor: '#F59E0B',
+  },
+  priceContainerEmpty: {
+    backgroundColor: 'rgba(249, 250, 251, 0.95)',
+    borderColor: '#E5E7EB',
+  },
+  priceContainerDisabled: {
+    opacity: 0.5,
+  },
+  coinIcon: {
+    fontSize: 10,
+    marginRight: 3,
+  },
+  coinIconEmpty: {
+    opacity: 0.5,
   },
   priceText: {
-    fontSize: 7,
-    color: '#6B7280',
-    marginTop: 1,
+    fontSize: 10,
+    fontWeight: '600',
+    color: '#374151',
+  },
+  priceTextEmpty: {
+    color: '#9CA3AF',
   },
 });

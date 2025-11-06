@@ -1,5 +1,5 @@
 /**
- * Scoring system for Memory game
+ * Scoring system for Flip & Match game
  * Implements performance, combo, and time scoring formulas
  */
 
@@ -10,8 +10,8 @@
  */
 export function previewTimeSec(N) {
   const P = N / 2;
-  const raw = 2 + 0.35 * P;
-  const clamped = Math.max(3, Math.min(12, raw));
+  const raw = 3 + 0.35 * P;
+  const clamped = Math.max(3, raw);
   return Math.round(clamped * 2) / 2; // round to 0.5s
 }
 

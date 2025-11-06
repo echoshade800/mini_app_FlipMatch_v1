@@ -1,6 +1,6 @@
 /**
  * Game Screen - Main gameplay interface
- * Purpose: Full memory card game implementation with preview, scoring, and completion
+ * Purpose: Full card matching game implementation with preview, scoring, and completion
  * Extension: Add power-ups, hints, different game modes, multiplayer
  */
 
@@ -494,7 +494,7 @@ export default function GameScreen() {
   };
 
   const handleMenuPress = () => {
-    // Only pause during playing state (memory and card-flipping phases)
+    // Only pause during playing state (preview and card-flipping phases)
     if (gameState === 'playing') {
       pauseGame();
     } else {
@@ -606,12 +606,6 @@ export default function GameScreen() {
           </View>
         </View>
       )}
-
-      {gameState === 'completed' && (
-        <View style={styles.completedOverlay}>
-          <Text style={styles.completedText}>🎉 Level Complete! 🎉</Text>
-        </View>
-      )}
     </Animated.View>
   );
 }
@@ -630,26 +624,6 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 18,
     color: '#EF4444',
-  },
-  completedOverlay: {
-    position: 'absolute',
-    bottom: 100,
-    left: 20,
-    right: 20,
-    backgroundColor: '#10B981',
-    padding: 20,
-    borderRadius: 12,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  completedText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
   },
   pauseOverlay: {
     position: 'absolute',

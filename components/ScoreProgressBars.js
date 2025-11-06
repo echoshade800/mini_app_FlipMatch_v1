@@ -3,7 +3,7 @@
  * Displays animated progress bars for Performance, Combo, and Time scores
  */
 
-import { View, Text, StyleSheet, Animated, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Animated, TouchableOpacity, Easing } from 'react-native';
 import { useEffect, useRef } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -36,42 +36,55 @@ export default function ScoreProgressBars({
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 300,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start();
 
     // 开始动画
     const startAnimations = () => {
       console.log('Starting progress bar animations...');
       
+      // 使用更平滑的缓动函数
+      const easingConfig = Easing.bezier(0.4, 0.0, 0.2, 1); // Material Design 标准缓动
+      
       // Accuracy bar (yellow)
+      // 注意：width 动画不能使用 nativeDriver，但我们已经优化了其他方面
       Animated.timing(performanceAnim, {
         toValue: (scoreData.accuracy || 0) / maxAccuracyScore,
-        duration: 1000,
-        useNativeDriver: false,
+        duration: 1200,
+        easing: easingConfig,
+        useNativeDriver: false, // width 动画必须使用 false
       }).start(() => {
         console.log('Accuracy bar animation completed');
-        // 触发heavy振动
-        HapticUtils.triggerHeavy();
+        // 异步触发heavy振动，避免阻塞动画
+        setTimeout(() => {
+          HapticUtils.triggerHeavy();
+        }, 0);
         
         // Combo bar (green)
         Animated.timing(comboAnim, {
           toValue: scoreData.combo / maxComboScore,
-          duration: 1000,
-          useNativeDriver: false,
+          duration: 1200,
+          easing: easingConfig,
+          useNativeDriver: false, // width 动画必须使用 false
         }).start(() => {
           console.log('Combo bar animation completed');
-          // 触发heavy振动
-          HapticUtils.triggerHeavy();
+          // 异步触发heavy振动，避免阻塞动画
+          setTimeout(() => {
+            HapticUtils.triggerHeavy();
+          }, 0);
           
           // Time bar (blue)
           Animated.timing(timeAnim, {
             toValue: scoreData.time / maxTimeScore,
-            duration: 1000,
-            useNativeDriver: false,
+            duration: 1200,
+            easing: easingConfig,
+            useNativeDriver: false, // width 动画必须使用 false
           }).start(() => {
             console.log('Time bar animation completed');
-            // 触发heavy振动
-            HapticUtils.triggerHeavy();
+            // 异步触发heavy振动，避免阻塞动画
+            setTimeout(() => {
+              HapticUtils.triggerHeavy();
+            }, 0);
             // 动画完成回调
             if (onAnimationComplete) {
               onAnimationComplete();
@@ -227,7 +240,6 @@ const styles = StyleSheet.create({
   progressBarFill: {
     height: '100%',
     borderRadius: 25,
-    minWidth: 0,
   },
   progressBarOverlay: {
     position: 'absolute',

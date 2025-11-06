@@ -12,10 +12,10 @@ import useGameStore from '../store/useGameStore';
 
 const ONBOARDING_SLIDES = [
   {
-    title: 'Welcome to Memory!',
-    subtitle: 'Test your memory with emoji cards',
+    title: 'Welcome to Flip & Match!',
+    subtitle: 'Test your skills with emoji cards',
     icon: '🧠',
-    content: 'Challenge your memory skills with our card matching game. Find matching emoji pairs across 25 levels of increasing difficulty!'
+    content: 'Challenge yourself with our card matching game. Find matching emoji pairs across 25 levels of increasing difficulty!'
   },
   {
     title: 'How to Play',
@@ -37,7 +37,7 @@ const ONBOARDING_SLIDES = [
   },
   {
     title: 'Ready to Start?',
-    subtitle: 'Your memory adventure begins',
+    subtitle: 'Your matching adventure begins',
     icon: '🚀',
     content: 'Start with Level 1 and progress through 5 difficulty tiers: Easy (green), Medium (blue), Hard (yellow), Very Hard (orange), and Extreme (red). Good luck!'
   }
